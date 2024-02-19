@@ -28,14 +28,24 @@ class ProductFeatureBuilder
     ) {
     }
 
+    /**
+     * @param iterable<LineItem> $lineItems
+     */
     public function prepare(iterable $lineItems, CartDataCollection $data, SalesChannelContext $context): void
     {
         $this->loadCustomFields($lineItems, $data, $context);
     }
 
+    /**
+     * @param iterable<LineItem> $lineItems
+     */
     public function add(iterable $lineItems, CartDataCollection $data, SalesChannelContext $context): void
     {
         foreach ($lineItems as $lineItem) {
+            if ($lineItem === null || $lineItem->getReferencedId() === null) {
+                continue;
+            }
+
             $product = $data->get(
                 $this->getDataKey($lineItem->getReferencedId())
             );
@@ -50,6 +60,9 @@ class ProductFeatureBuilder
         }
     }
 
+    /**
+     * @return array<array<string, mixed>>
+     */
     private function buildFeatures(CartDataCollection $data, LineItem $lineItem, SalesChannelProductEntity $product): array
     {
         $features = [];
@@ -94,6 +107,9 @@ class ProductFeatureBuilder
         return array_filter($features);
     }
 
+    /**
+     * @param iterable<LineItem> $lineItems
+     */
     private function loadCustomFields(iterable $lineItems, CartDataCollection $data, SalesChannelContext $context): void
     {
         $required = [];
@@ -162,6 +178,9 @@ class ProductFeatureBuilder
         return false;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function getAttribute(string $name, SalesChannelProductEntity $product): array
     {
         $translated = $product->getTranslated();
@@ -182,6 +201,9 @@ class ProductFeatureBuilder
         ];
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     private function getProperty(string $id, SalesChannelProductEntity $product): ?array
     {
         if ($product->getProperties() === null) {
@@ -226,6 +248,9 @@ class ProductFeatureBuilder
         ];
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     private function getCustomField(string $name, CartDataCollection $data, SalesChannelProductEntity $product): ?array
     {
         $fieldKey = sprintf('custom-field-%s', $name);
@@ -257,6 +282,9 @@ class ProductFeatureBuilder
         ];
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     private function getReferencePrice(LineItem $lineItem, SalesChannelProductEntity $product): ?array
     {
         if ($lineItem->getPrice() === null) {

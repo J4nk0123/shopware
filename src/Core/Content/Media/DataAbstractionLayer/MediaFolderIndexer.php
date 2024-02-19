@@ -160,6 +160,8 @@ class MediaFolderIndexer extends EntityIndexer
 
     /**
      * @param array<string> $parentIds
+     *
+     * @return array<string>
      */
     private function fetchChildren(array $parentIds): array
     {
@@ -179,6 +181,8 @@ class MediaFolderIndexer extends EntityIndexer
     }
 
     /**
+     * @param array<string> $ids
+     *
      * @return array<string>
      */
     private function getParentIds(array $ids): array

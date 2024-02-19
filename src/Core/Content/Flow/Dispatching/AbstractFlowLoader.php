@@ -10,5 +10,8 @@ use Shopware\Core\Framework\Log\Package;
 #[Package('services-settings')]
 abstract class AbstractFlowLoader
 {
+    /**
+     * @return array<array<string, mixed>>
+     */
     abstract public function load(): array;
 }

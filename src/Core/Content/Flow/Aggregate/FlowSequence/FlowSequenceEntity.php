@@ -32,6 +32,9 @@ class FlowSequenceEntity extends Entity
 
     protected ?string $actionName = null;
 
+    /**
+     * @var array<string, mixed> $config
+     */
     protected array $config;
 
     protected int $position;
@@ -124,11 +127,17 @@ class FlowSequenceEntity extends Entity
         $this->actionName = $actionName;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getConfig(): array
     {
         return $this->config;
     }
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function setConfig(array $config): void
     {
         $this->config = $config;

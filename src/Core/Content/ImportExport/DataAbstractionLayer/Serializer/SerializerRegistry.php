@@ -22,6 +22,10 @@ class SerializerRegistry
 
     /**
      * @internal
+     *
+     * @param iterable<AbstractEntitySerializer> $entitySerializers
+     *
+     * @param iterable<AbstractFieldSerializer>  $fieldSerializers
      */
     public function __construct(
         iterable $entitySerializers,

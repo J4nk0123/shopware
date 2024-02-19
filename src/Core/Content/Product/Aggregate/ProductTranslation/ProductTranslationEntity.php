@@ -63,7 +63,7 @@ class ProductTranslationEntity extends TranslationEntity
     protected $product;
 
     /**
-     * @var array|null
+     * @var array<string>|null
      */
     protected $slotConfig;
 
@@ -152,12 +152,18 @@ class ProductTranslationEntity extends TranslationEntity
         $this->product = $product;
     }
 
+    /**
+     * @return array<string>|null
+     */
     public function getSlotConfig(): ?array
     {
         return $this->slotConfig;
     }
 
-    public function setSlotConfig(array $slotConfig): void
+    /**
+     * @param array<string>|null $slotConfig
+     */
+    public function setSlotConfig(?array $slotConfig): void
     {
         $this->slotConfig = $slotConfig;
     }
@@ -172,11 +178,17 @@ class ProductTranslationEntity extends TranslationEntity
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @return array<string>|null
+     */
     public function getCustomSearchKeywords(): ?array
     {
         return $this->customSearchKeywords;
     }
 
+    /**
+     * @param array<string>|null $customSearchKeywords
+     */
     public function setCustomSearchKeywords(?array $customSearchKeywords): void
     {
         $this->customSearchKeywords = $customSearchKeywords;

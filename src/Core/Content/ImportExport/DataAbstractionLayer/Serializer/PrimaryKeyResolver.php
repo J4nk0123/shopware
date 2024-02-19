@@ -31,6 +31,11 @@ class PrimaryKeyResolver
     ) {
     }
 
+    /**
+     * @param array<string, mixed> $record
+     *
+     * @return array<string, mixed>
+     */
     public function resolvePrimaryKeyFromUpdatedBy(Config $config, ?EntityDefinition $definition, iterable $record): iterable
     {
         if (!$definition) {
@@ -44,6 +49,11 @@ class PrimaryKeyResolver
         );
     }
 
+    /**
+     * @param array<string, mixed> $record
+     *
+     * @return array<string, mixed>
+     */
     private function resolvePrimaryKey(Config $config, EntityDefinition $definition, iterable $record): iterable
     {
         $updatedBy = $config->getUpdateBy()->get($definition->getEntityName());
@@ -168,6 +178,11 @@ class PrimaryKeyResolver
         return implode('.', $updateByFieldPath);
     }
 
+    /**
+     * @param array<string, mixed> $record
+     *
+     * @return array<string, mixed>
+     */
     private function handleManyToManyAssociations(Config $config, EntityDefinition $definition, iterable $record): iterable
     {
         foreach ($definition->getFields() as $field) {

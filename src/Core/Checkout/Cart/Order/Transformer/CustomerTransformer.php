@@ -9,6 +9,9 @@ use Shopware\Core\Framework\Log\Package;
 #[Package('checkout')]
 class CustomerTransformer
 {
+    /**
+     * @return array<array-key, array<string, mixed>>
+     */
     public static function transformCollection(CustomerCollection $customers, bool $useIdAsKey = false): array
     {
         $output = [];
@@ -23,6 +26,9 @@ class CustomerTransformer
         return $output;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public static function transform(CustomerEntity $customer): array
     {
         return [

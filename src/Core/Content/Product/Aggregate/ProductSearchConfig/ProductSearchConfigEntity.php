@@ -29,7 +29,7 @@ class ProductSearchConfigEntity extends Entity
     protected $minSearchLength;
 
     /**
-     * @var array|null
+     * @var array<string>|null
      */
     protected $excludedTerms;
 
@@ -73,11 +73,17 @@ class ProductSearchConfigEntity extends Entity
         $this->minSearchLength = $minSearchLength;
     }
 
+    /**
+     * @return array<string>|null
+     */
     public function getExcludedTerms(): ?array
     {
         return $this->excludedTerms;
     }
 
+    /**
+     * @param array<string>|null $excludedTerms
+     */
     public function setExcludedTerms(?array $excludedTerms): void
     {
         $this->excludedTerms = $excludedTerms;

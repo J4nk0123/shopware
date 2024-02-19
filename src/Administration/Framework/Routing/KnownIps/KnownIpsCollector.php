@@ -15,6 +15,8 @@ class KnownIpsCollector implements KnownIpsCollectorInterface
      *         '127.0.0.1' => 'global.sw-multi-tag-ip-select.knownIps.you'
      *     ]
      * </code>
+     *
+     * @return array<string, string>
      */
     public function collectIps(Request $request): array
     {

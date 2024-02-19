@@ -91,6 +91,9 @@ class QuantityPriceDefinition extends Struct implements PriceDefinitionInterface
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     public static function fromArray(array $data): self
     {
         $taxRules = array_map(

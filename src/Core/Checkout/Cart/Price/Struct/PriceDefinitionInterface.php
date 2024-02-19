@@ -3,6 +3,8 @@
 namespace Shopware\Core\Checkout\Cart\Price\Struct;
 
 use Shopware\Core\Framework\Log\Package;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Type;
 
 #[Package('checkout')]
 interface PriceDefinitionInterface
@@ -38,6 +40,9 @@ interface PriceDefinitionInterface
      *
      * @see PercentagePriceDefinition
      * @see Rule
+     *
+     * @return array<string, array<int, NotBlank|Type>>
      */
     public static function getConstraints(): array;
 }
+

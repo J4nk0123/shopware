@@ -25,7 +25,7 @@ class FieldConfig extends Struct
     protected $source;
 
     /**
-     * @param array|bool|float|int|string|null $value
+     * @param array<int, mixed>|bool|float|int|string|null $value
      */
     public function __construct(
         string $name,
@@ -47,13 +47,16 @@ class FieldConfig extends Struct
     }
 
     /**
-     * @return array|bool|float|int|string|null
+     * @return array<int, mixed>|bool|float|int|string|null
      */
     public function getValue()
     {
         return $this->value;
     }
 
+    /**
+     * @return array<int, mixed>
+     */
     public function getArrayValue(): array
     {
         if (\is_array($this->value)) {

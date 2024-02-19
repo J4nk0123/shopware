@@ -10,6 +10,9 @@ use Shopware\Core\Framework\Uuid\Uuid;
 #[Package('checkout')]
 class AddressTransformer
 {
+    /**
+     * @return array<array-key, mixed>
+     */
     public static function transformCollection(CustomerAddressCollection $addresses, bool $useIdAsKey = false): array
     {
         $output = [];
@@ -17,6 +20,7 @@ class AddressTransformer
             if (\array_key_exists($address->getId(), $output)) {
                 continue;
             }
+            /** @var CustomerAddressEntity $address */
             $output[$address->getId()] = self::transform($address);
         }
 
@@ -27,6 +31,9 @@ class AddressTransformer
         return $output;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public static function transform(CustomerAddressEntity $address): array
     {
         return array_filter([

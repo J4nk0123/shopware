@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 #[Package('services-settings')]
 class MailTransportFailedException extends ShopwareHttpException
 {
+    /**
+     * @param array<string> $failedRecipients
+     */
     public function __construct(
         array $failedRecipients,
         ?\Throwable $e = null

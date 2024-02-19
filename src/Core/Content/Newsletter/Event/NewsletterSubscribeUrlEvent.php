@@ -12,6 +12,9 @@ use Symfony\Contracts\EventDispatcher\Event;
 #[Package('buyers-experience')]
 class NewsletterSubscribeUrlEvent extends Event implements ShopwareSalesChannelEvent
 {
+    /**
+     * @param array<string, mixed> $data
+     */
     public function __construct(
         private readonly SalesChannelContext $salesChannelContext,
         private string $subscribeUrl,
@@ -57,6 +60,9 @@ class NewsletterSubscribeUrlEvent extends Event implements ShopwareSalesChannelE
         return $this->hash;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getData(): array
     {
         return $this->data;

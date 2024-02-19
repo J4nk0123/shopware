@@ -19,6 +19,8 @@ class SeoUrlRouteRegistry
 
     /**
      * @internal
+     *
+     * @param iterable<SeoUrlRouteInterface> $seoUrlRoutes
      */
     public function __construct(iterable $seoUrlRoutes)
     {
@@ -33,6 +35,9 @@ class SeoUrlRouteRegistry
         }
     }
 
+    /**
+     * @return iterable<SeoUrlRouteInterface>
+     */
     public function getSeoUrlRoutes(): iterable
     {
         return $this->seoUrlRoutes;

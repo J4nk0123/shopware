@@ -47,7 +47,7 @@ class OrderCustomerEntity extends Entity
     protected $title;
 
     /**
-     * @var array|null
+     * @var array<string>|null
      */
     protected $vatIds;
 
@@ -141,6 +141,9 @@ class OrderCustomerEntity extends Entity
         $this->title = $title;
     }
 
+    /**
+     * @return array<string>|null
+     */
     public function getVatIds(): ?array
     {
         return $this->vatIds;

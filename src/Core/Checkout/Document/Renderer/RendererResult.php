@@ -28,11 +28,17 @@ final class RendererResult extends Struct
         $this->errors[$orderId] = $exception;
     }
 
+    /**
+     * @return array<string, RenderedDocument>
+     */
     public function getSuccess(): array
     {
         return $this->success;
     }
 
+    /**
+     * @return array<string, \Throwable>
+     */
     public function getErrors(): array
     {
         return $this->errors;

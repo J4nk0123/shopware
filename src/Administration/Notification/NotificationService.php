@@ -23,6 +23,9 @@ class NotificationService
     {
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     public function createNotification(array $data, Context $context): void
     {
         $context->scope(Context::SYSTEM_SCOPE, function (Context $context) use ($data): void {
@@ -30,6 +33,12 @@ class NotificationService
         });
     }
 
+    /**
+     * @return array{
+     *     notifications: NotificationCollection,
+     *     timestamp: string|null
+     * }
+     */
     public function getNotifications(Context $context, int $limit, ?string $latestTimestamp): array
     {
         $source = $context->getSource();
@@ -102,6 +111,9 @@ class NotificationService
         return $responseNotifications;
     }
 
+    /**
+     * @param array<string> $privileges
+     */
     private function isAllow(array $privileges, AdminApiSource $source): bool
     {
         foreach ($privileges as $privilege) {

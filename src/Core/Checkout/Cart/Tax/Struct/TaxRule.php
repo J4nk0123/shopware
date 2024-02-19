@@ -39,6 +39,9 @@ class TaxRule extends Struct
         return FloatComparator::cast($this->percentage);
     }
 
+    /**
+     * @return array{taxRate:array{NotBlank, Type}, percentage: array{Type}}
+     */
     public static function getConstraints(): array
     {
         return [
@@ -52,3 +55,4 @@ class TaxRule extends Struct
         return 'cart_tax_rule';
     }
 }
+//array{taxRate:array{Symfony\Component\Validator\Constraints\NotBlank, Symfony\Component\Validator\Constraints\Type}, percentage: array{Symfony\Component\Validator\Constraints\Type}}

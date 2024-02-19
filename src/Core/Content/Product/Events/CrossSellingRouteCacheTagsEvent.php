@@ -12,6 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 #[Package('inventory')]
 class CrossSellingRouteCacheTagsEvent extends StoreApiRouteCacheTagsEvent
 {
+    /**
+     * @param array<string> $tags
+     */
     public function __construct(
         protected string $productId,
         array $tags,

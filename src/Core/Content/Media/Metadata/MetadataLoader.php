@@ -19,6 +19,9 @@ class MetadataLoader
     {
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function loadFromFile(MediaFile $mediaFile, MediaType $mediaType): ?array
     {
         foreach ($this->metadataLoader as $loader) {

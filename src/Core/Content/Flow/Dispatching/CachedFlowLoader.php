@@ -18,6 +18,9 @@ class CachedFlowLoader extends AbstractFlowLoader implements EventSubscriberInte
 {
     final public const KEY = 'flow-loader';
 
+    /**
+     * @var array<array<string, mixed>>
+     */
     private array $flows = [];
 
     public function __construct(

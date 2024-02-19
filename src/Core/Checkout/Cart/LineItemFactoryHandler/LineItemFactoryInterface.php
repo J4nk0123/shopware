@@ -16,7 +16,13 @@ interface LineItemFactoryInterface
 {
     public function supports(string $type): bool;
 
+    /**
+     * @param array<int|string, mixed> $data
+     */
     public function create(array $data, SalesChannelContext $context): LineItem;
 
+    /**
+     * @param array<int|string, mixed> $data
+     */
     public function update(LineItem $lineItem, array $data, SalesChannelContext $context): void;
 }

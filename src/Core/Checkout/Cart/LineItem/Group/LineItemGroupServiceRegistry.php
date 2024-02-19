@@ -11,6 +11,10 @@ class LineItemGroupServiceRegistry
 {
     /**
      * @internal
+     *
+     * @param iterable<LineItemGroupPackagerInterface> $packagers
+     *
+     * @param iterable<LineItemGroupSorterInterface>   $sorters
      */
     public function __construct(
         private readonly iterable $packagers,

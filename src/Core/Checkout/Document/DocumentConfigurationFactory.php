@@ -13,6 +13,9 @@ class DocumentConfigurationFactory
         // Factory is Static
     }
 
+    /**
+     * @param array<string, mixed> $specificConfig
+     */
     public static function createConfiguration(array $specificConfig, ?DocumentBaseConfigEntity ...$configs): DocumentConfiguration
     {
         $configs = array_filter($configs);
@@ -25,6 +28,9 @@ class DocumentConfigurationFactory
         return $documentConfiguration;
     }
 
+    /**
+     * @param DocumentBaseConfigEntity|DocumentConfiguration|array<string, mixed> $additionalConfig
+     */
     public static function mergeConfiguration(DocumentConfiguration $baseConfig, DocumentBaseConfigEntity|DocumentConfiguration|array $additionalConfig): DocumentConfiguration
     {
         $additionalConfigArray = [];
@@ -52,6 +58,11 @@ class DocumentConfigurationFactory
         return $baseConfig;
     }
 
+    /**
+     * @param array<string, mixed> $config
+     *
+     * @return array<string, mixed>
+     */
     private static function cleanConfig(array $config): array
     {
         if (isset($config['config'])) {

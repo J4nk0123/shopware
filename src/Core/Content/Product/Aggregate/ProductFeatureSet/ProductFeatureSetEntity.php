@@ -24,7 +24,7 @@ class ProductFeatureSetEntity extends Entity
     protected $description;
 
     /**
-     * @var array|null
+     * @var array<array<string, string>>|null
      */
     protected $features;
 
@@ -58,11 +58,17 @@ class ProductFeatureSetEntity extends Entity
         $this->description = $description;
     }
 
+    /**
+     * @return array<array<string, string>>|null
+     */
     public function getFeatures(): ?array
     {
         return $this->features;
     }
 
+    /**
+     * @param array<array<string, string>> $features
+     */
     public function setFeatures(array $features): void
     {
         $this->features = $features;

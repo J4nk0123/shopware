@@ -51,11 +51,17 @@ class MailSendSubscriberConfig extends Struct
         $this->skip = $skip;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getDocumentIds(): array
     {
         return $this->documentIds;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getMediaIds(): array
     {
         return $this->mediaIds;

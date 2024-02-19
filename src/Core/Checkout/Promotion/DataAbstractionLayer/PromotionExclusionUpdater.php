@@ -24,6 +24,8 @@ class PromotionExclusionUpdater
     /**
      * function is called when a promotion is saved.
      * the exclusions of promotions will be checked and are written/deleted if necessary
+     *
+     * @param array<string> $ids
      */
     public function update(array $ids): void
     {
@@ -40,6 +42,7 @@ class PromotionExclusionUpdater
             $promotionExclusions = [];
 
             if (\count($exclusions) > 0) {
+                /** @var array<string, string> $firstResult */
                 $firstResult = array_shift($exclusions);
                 if (\array_key_exists('exclusion_ids', $firstResult)) {
                     // if there are exclusions, set them in array
@@ -146,6 +149,8 @@ class PromotionExclusionUpdater
      * appends addId in all promotions that id is in ids
      *
      * @throws Exception
+     *
+     * @param array<string> $ids
      */
     private function addToJSON(string $addId, array $ids): void
     {
@@ -198,6 +203,10 @@ class PromotionExclusionUpdater
 
     /**
      * function returns all promotion id hex values that are in given array ids
+     *
+     * @param array<string> $ids
+     *
+     * @return array<string>
      */
     private function getExistingIds(array $ids): array
     {
@@ -225,6 +234,8 @@ class PromotionExclusionUpdater
      * returns exclusions of promotion with id id
      *
      * @throws InvalidUuidException
+     *
+     * @return array<int, array<string, mixed>>
      */
     private function getExclusionIds(string $id): array
     {
@@ -246,6 +257,8 @@ class PromotionExclusionUpdater
      * helper function to convert hex array values to a binary array
      *
      * @param array<string> $hexIds
+     *
+     * @return array<string>
      */
     private function convertHexArrayToByteArray(array $hexIds): array
     {

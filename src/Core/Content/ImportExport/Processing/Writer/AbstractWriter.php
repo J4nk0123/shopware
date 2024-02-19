@@ -8,6 +8,9 @@ use Shopware\Core\Framework\Log\Package;
 #[Package('services-settings')]
 abstract class AbstractWriter
 {
+    /**
+     * @param array<string, mixed> $data
+     */
     abstract public function append(Config $config, array $data, int $index): void;
 
     abstract public function flush(Config $config, string $targetPath): void;

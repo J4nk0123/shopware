@@ -30,6 +30,9 @@ class CsvFileWriter extends AbstractFileWriter
         $this->writeToBuffer(array_values($data));
     }
 
+    /**
+     * @param array<int, mixed> $data
+     */
     private function writeToBuffer(array $data): void
     {
         if (fputcsv($this->buffer, $data, $this->delimiter, $this->enclosure) === false) {

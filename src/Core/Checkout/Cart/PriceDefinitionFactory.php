@@ -13,6 +13,9 @@ use Shopware\Core\Framework\Log\Package;
 #[Package('checkout')]
 class PriceDefinitionFactory
 {
+    /**
+     * @param array<string, mixed> $priceDefinition
+     */
     public function factory(Context $context, array $priceDefinition, string $lineItemType): PriceDefinitionInterface
     {
         if (!isset($priceDefinition['type'])) {

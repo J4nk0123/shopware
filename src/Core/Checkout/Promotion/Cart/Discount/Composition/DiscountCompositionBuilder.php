@@ -10,6 +10,8 @@ class DiscountCompositionBuilder
 {
     /**
      * @param DiscountCompositionItem[] $items
+     *
+     * @return array<int,array<string, float|int|string>>
      */
     public function buildCompositionPayload(array $items): array
     {
@@ -30,6 +32,10 @@ class DiscountCompositionBuilder
      * If our discount price is greater than our actual cart price, we have to
      * adjust the calculated discount price.
      * Due to that, we also have to adjust our composition data to match the new target price.
+     *
+     * @param array<DiscountCompositionItem> $targetItems
+     *
+     * @return array<DiscountCompositionItem>
      */
     public function adjustCompositionItemValues(CalculatedPrice $targetPrice, array $targetItems): array
     {
@@ -59,6 +65,10 @@ class DiscountCompositionBuilder
      * Iterates through all composition items and removes redundant
      * occurrences by merging items into single items and
      * aggregating their values.
+     *
+     * @param array<DiscountCompositionItem> $items
+     *
+     * @return array<DiscountCompositionItem>
      */
     public function aggregateCompositionItems(array $items): array
     {

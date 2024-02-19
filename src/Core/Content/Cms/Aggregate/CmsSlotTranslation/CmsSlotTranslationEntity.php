@@ -13,7 +13,7 @@ class CmsSlotTranslationEntity extends TranslationEntity
     use EntityCustomFieldsTrait;
 
     /**
-     * @var array|null
+     * @var array<string, mixed>|null
      */
     protected $config;
 
@@ -27,11 +27,17 @@ class CmsSlotTranslationEntity extends TranslationEntity
      */
     protected $cmsSlot;
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getConfig(): ?array
     {
         return $this->config;
     }
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function setConfig(array $config): void
     {
         $this->config = $config;

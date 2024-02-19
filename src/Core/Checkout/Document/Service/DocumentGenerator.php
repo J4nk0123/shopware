@@ -102,13 +102,9 @@ class DocumentGenerator
 
         $rendered = $this->rendererRegistry->render($documentType, [$operation->getOrderId() => $operation], $context, $config);
 
-        if (!\array_key_exists($operation->getOrderId(), $rendered->getSuccess())) {
-            throw DocumentException::generationError();
-        }
+        $document = $rendered->getSuccess()[$operation->getOrderId()] ?? null;
 
-        $document = $rendered->getSuccess()[$operation->getOrderId()];
-
-        if (!($document instanceof RenderedDocument)) {
+        if ($document === null) {
             throw DocumentException::generationError();
         }
 

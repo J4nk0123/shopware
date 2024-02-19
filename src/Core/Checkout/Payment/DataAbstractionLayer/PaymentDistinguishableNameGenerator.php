@@ -46,6 +46,9 @@ class PaymentDistinguishableNameGenerator
         return $payments;
     }
 
+    /**
+     * @return array<array{id: string, distinguishableName: non-empty-array<string, string|null>}>
+     */
     private function generateDistinguishableNamesPayload(PaymentMethodCollection $payments): array
     {
         $upsertablePayments = [];

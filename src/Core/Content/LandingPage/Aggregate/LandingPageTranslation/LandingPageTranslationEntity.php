@@ -48,7 +48,7 @@ class LandingPageTranslationEntity extends TranslationEntity
     protected $keywords;
 
     /**
-     * @var array|null
+     * @var array<array<string, mixed>>|null
      */
     protected $slotConfig;
 
@@ -122,11 +122,17 @@ class LandingPageTranslationEntity extends TranslationEntity
         $this->keywords = $keywords;
     }
 
+    /**
+     * @return array<array<string, mixed>>|null
+     */
     public function getSlotConfig(): ?array
     {
         return $this->slotConfig;
     }
 
+    /**
+     * @param array<array<string, mixed>>|null $slotConfig
+     */
     public function setSlotConfig(?array $slotConfig): void
     {
         $this->slotConfig = $slotConfig;

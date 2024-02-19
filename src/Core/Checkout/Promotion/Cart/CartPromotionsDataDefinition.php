@@ -9,8 +9,14 @@ use Shopware\Core\Framework\Struct\Struct;
 #[Package('buyers-experience')]
 class CartPromotionsDataDefinition extends Struct
 {
+    /**
+     * @var array<string, array<PromotionEntity>>
+     */
     private array $codePromotions;
 
+    /**
+     * @var array<PromotionEntity>
+     */
     private array $automaticPromotions;
 
     public function __construct()
@@ -22,6 +28,8 @@ class CartPromotionsDataDefinition extends Struct
     /**
      * Adds a list of promotions to the existing
      * list of automatic promotions.
+     *
+     * @param array<PromotionEntity> $promotions
      */
     public function addAutomaticPromotions(array $promotions): void
     {
@@ -30,6 +38,8 @@ class CartPromotionsDataDefinition extends Struct
 
     /**
      * Gets all added automatic promotions.
+     *
+     * @return array<PromotionEntity>
      */
     public function getAutomaticPromotions(): array
     {
@@ -38,6 +48,8 @@ class CartPromotionsDataDefinition extends Struct
 
     /**
      * Gets all added code promotions
+     *
+     * @return array<string, array<PromotionEntity>>
      */
     public function getCodePromotions(): array
     {
@@ -49,7 +61,7 @@ class CartPromotionsDataDefinition extends Struct
      * to the existing list of promotions for this code.
      *
      * @param string $code       the promotion code
-     * @param array  $promotions a list of promotion entities for this code
+     * @param array<PromotionEntity> $promotions a list of promotion entities for this code
      */
     public function addCodePromotions(string $code, array $promotions): void
     {
@@ -57,7 +69,7 @@ class CartPromotionsDataDefinition extends Struct
             $this->codePromotions[$code] = [];
         }
 
-        /** @var array $existing */
+        /** @var array<PromotionEntity> $existing */
         $existing = $this->codePromotions[$code];
 
         $this->codePromotions[$code] = array_merge($existing, $promotions);
@@ -66,6 +78,8 @@ class CartPromotionsDataDefinition extends Struct
     /**
      * Gets a list of all added automatic and
      * code promotions.
+     *
+     * @return array<PromotionCodeTuple>
      */
     public function getPromotionCodeTuples(): array
     {
@@ -110,6 +124,8 @@ class CartPromotionsDataDefinition extends Struct
 
     /**
      * Gets a flat list of all added codes.
+     *
+     * @return array<string>
      */
     public function getAllCodes(): array
     {

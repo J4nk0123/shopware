@@ -12,6 +12,9 @@ use Shopware\Core\System\SalesChannel\SalesChannelContext;
 #[Package('inventory')]
 class ProductListingResolvePreviewEvent extends NestedEvent implements ShopwareSalesChannelEvent
 {
+    /**
+     * @param array<string> $mapping
+     */
     public function __construct(
         protected SalesChannelContext $context,
         protected Criteria $criteria,
@@ -25,6 +28,9 @@ class ProductListingResolvePreviewEvent extends NestedEvent implements ShopwareS
         return $this->criteria;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getMapping(): array
     {
         return $this->mapping;

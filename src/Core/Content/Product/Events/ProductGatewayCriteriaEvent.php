@@ -27,6 +27,9 @@ class ProductGatewayCriteriaEvent extends NestedEvent implements ShopwareSalesCh
      */
     protected $context;
 
+    /**
+     * @param array<string> $ids
+     */
     public function __construct(
         array $ids,
         Criteria $criteria,
@@ -37,6 +40,9 @@ class ProductGatewayCriteriaEvent extends NestedEvent implements ShopwareSalesCh
         $this->context = $context;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getIds(): array
     {
         return $this->ids;

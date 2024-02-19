@@ -22,6 +22,9 @@ class ProductGateway implements ProductGatewayInterface
     ) {
     }
 
+    /**
+     * @param array<string> $ids
+     */
     public function get(array $ids, SalesChannelContext $context): ProductCollection
     {
         $criteria = new Criteria($ids);

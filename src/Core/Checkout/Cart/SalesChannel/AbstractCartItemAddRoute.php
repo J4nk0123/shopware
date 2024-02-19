@@ -15,5 +15,8 @@ abstract class AbstractCartItemAddRoute
 {
     abstract public function getDecorated(): AbstractCartItemAddRoute;
 
+    /**
+     * @param array<int|string, mixed>|null $items
+     */
     abstract public function add(Request $request, Cart $cart, SalesChannelContext $context, ?array $items): CartResponse;
 }

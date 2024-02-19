@@ -62,7 +62,7 @@ class CmsPageEntity extends Entity
     protected $cssClass;
 
     /**
-     * @var array|null
+     * @var array<string, mixed>|null
      */
     protected $config;
 
@@ -177,11 +177,17 @@ class CmsPageEntity extends Entity
         $this->cssClass = $cssClass;
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getConfig(): ?array
     {
         return $this->config;
     }
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function setConfig(array $config): void
     {
         $this->config = $config;
@@ -244,6 +250,9 @@ class CmsPageEntity extends Entity
         $this->homeSalesChannels = $homeSalesChannels;
     }
 
+    /**
+     * @return array<CmsSlotEntity>
+     */
     public function getElementsOfType(string $type): array
     {
         $elements = [];

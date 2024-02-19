@@ -12,7 +12,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 class WishlistMergedEvent extends Event implements ShopwareSalesChannelEvent
 {
     /**
-     * @var array
+     * @var array<array<string, string>>
      */
     protected $products;
 
@@ -21,6 +21,9 @@ class WishlistMergedEvent extends Event implements ShopwareSalesChannelEvent
      */
     protected $context;
 
+    /**
+     * @param array<array<string, string>> $product
+     */
     public function __construct(
         array $product,
         SalesChannelContext $context
@@ -29,6 +32,9 @@ class WishlistMergedEvent extends Event implements ShopwareSalesChannelEvent
         $this->context = $context;
     }
 
+    /**
+     * @return array<array<string, string>>
+     */
     public function getProducts(): array
     {
         return $this->products;

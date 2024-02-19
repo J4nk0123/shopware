@@ -77,6 +77,9 @@ class NotificationRepositoryTest extends TestCase
         static::assertSame($data['message'], $notification->getMessage());
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public static function notificationProvider(): array
     {
         return [

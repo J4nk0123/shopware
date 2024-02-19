@@ -33,6 +33,9 @@ class SearchControllerTest extends TestCase
         static::assertStringContainsString(htmlentities($term), $html);
     }
 
+    /**
+     * @return iterable<array<string>>
+     */
     public static function getProviderInvalidTerms(): iterable
     {
         yield ['<h1 style="color:red">Test</h1>'];

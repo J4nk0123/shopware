@@ -12,6 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 #[Package('buyers-experience')]
 class LandingPageRouteCacheTagsEvent extends StoreApiRouteCacheTagsEvent
 {
+
+    /**
+     * @param array<string> $tags
+     */
     public function __construct(
         protected string $landingPageId,
         array $tags,

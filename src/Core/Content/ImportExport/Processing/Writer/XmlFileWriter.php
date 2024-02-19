@@ -27,6 +27,9 @@ class XmlFileWriter extends AbstractFileWriter
         parent::finish($config, $targetPath);
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     private function addDataToNode(\SimpleXMLElement $node, array $data): void
     {
         foreach ($data as $key => $value) {

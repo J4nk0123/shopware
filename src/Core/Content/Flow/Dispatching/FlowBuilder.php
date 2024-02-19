@@ -13,6 +13,9 @@ use Shopware\Core\Framework\Struct\ArrayStruct;
 #[Package('services-settings')]
 class FlowBuilder
 {
+    /**
+     * @param array<array<string, mixed>> $flowSequences
+     */
     public function build(string $id, array $flowSequences): Flow
     {
         $flowSequences = $this->buildHierarchyTree($flowSequences);
@@ -34,6 +37,11 @@ class FlowBuilder
         return new Flow($id, $sequences, $flat);
     }
 
+    /**
+     * @param array<array<string, mixed>> $flowSequences
+     *
+     * @return array<array<string, mixed>>
+     */
     private function buildHierarchyTree(array $flowSequences, ?string $parentId = null): array
     {
         $children = [];
@@ -59,6 +67,10 @@ class FlowBuilder
     }
 
     /**
+     * @param array<array<string, mixed>> $siblings
+     *
+     * @param array<mixed> $sequence
+     *
      * @param ArrayStruct<string, mixed> $flatBag
      */
     private function createNestedSequence(array $sequence, array $siblings, ArrayStruct $flatBag): Sequence
@@ -76,6 +88,10 @@ class FlowBuilder
 
     /**
      * @param ArrayStruct<string, mixed> $flagBag
+     *
+     * @param array<array<string, mixed>> $siblingSequences
+     *
+     * @param array<mixed> $currentSequence
      */
     private function createNestedAction(array $currentSequence, array $siblingSequences, ArrayStruct $flagBag): Sequence
     {
@@ -119,6 +135,8 @@ class FlowBuilder
 
     /**
      * @param ArrayStruct<string, mixed> $flagBag
+     *
+     * @param array<mixed> $currentSequence
      */
     private function createNestedIf(array $currentSequence, ArrayStruct $flagBag): Sequence
     {
